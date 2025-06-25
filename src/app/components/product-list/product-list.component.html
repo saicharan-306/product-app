@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="bg-light p-4 rounded shadow-lg" style="backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff;">
+    <h2 class="mb-4 text-dark">🍎 Product Management</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-light text-dark fw-semibold" routerLink="/create">➕ Add Product</a>
+    </div>
+
+    <table class="table table-dark table-hover table-bordered rounded">
+      <thead class="table-light text-dark">
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price ($)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.category}}</td>
+          <td>{{ product.price | currency:'USD':'symbol' }}</td>
+          <td>
+            <button class="btn btn-outline-warning btn-sm me-2" (click)="edit(product.id)">Edit</button>
+            <button class="btn btn-outline-danger btn-sm" (click)="delete(product.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
