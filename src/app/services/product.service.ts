@@ -14,6 +14,7 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
+  
   private api = environment.apiUrl; // ✅ Use the correct URL from environment.ts
 
   constructor(private http: HttpClient) {}
